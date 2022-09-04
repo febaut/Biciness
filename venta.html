@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Biciness</title>
+</head>
+
+<body>
+  <header>
+    <div class="caja">
+      <p class="titulo">Biciness</p>
+      <nav>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="caja-formulario">
+      <form class="formulario">
+        <label for="referencia">Referencia</label>
+        <input type="text" id="referencia">
+        <label for="Precio">Precio</label>
+        <input type="text" id="Precio">
+        <label for="foto">Suba una foto</label>
+
+        <input type="file" id="foto" name="foto">
+        <input type="submit" value="Enviar" class="btn-enviar">
+
+
+
+      </form>
+    </div>
+    <div class="pudrete">
+      <div class="image-preview" id="preview">
+        <img src="" alt="Image Preview" class="image-preview__image">
+        <span class="image-preview__default-text">Image preview</span>
+      </div>
+    </div>
+  </main>
+
+</body>
+<script src="script.js"></script>
+
+</html>
