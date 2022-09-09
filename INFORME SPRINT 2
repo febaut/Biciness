@@ -1,0 +1,67 @@
+INFORME RETROSPECTIVA 2
+
+    • Revisión de indentado:
+ se revisó el indentado del código, observando un buen orden en la estructura.
+ se resalta los comentarios en el archivo style.css, que permite una mejor legibilidad 
+ al momento de analizar el código.
+
+    • Test Frontend:
+ como recomendación, mejorar la posición del título en la linea 16, ya que la imagen
+ se encuentra sobre el título "Biciness"
+
+ se recomienda cambiar en la hoja de estilos la propiedad top, que tiene un valor de 40px,
+ cambiarlo por 30px.
+
+ como recomendación, mejorar la simetría de la barra de navegación con respecto a la imagen.
+ se recomienda ajustar las siguientes carácterísticas en la hoja de estilos. style.css.
+ nav a {
+    padding: 0 10px;
+    margin: 2px;
+ }
+
+ nav {
+    righ 9%;
+ }
+
+ como recomendación, mejorar el tamaño de la imagen para que no se desfigure.
+ se recomienda ajustar en la hoja de estilos. style.css.
+ .imagen{
+    height:150%;
+ }
+
+ como recomendación, mejorar la posición de la vista previa para la imagen cargada en la sección venta.
+  se recomienda ajustar el código html. venta.html
+
+  <main>
+    <div class="caja-formulario">
+      <form class="formulario">
+        <label for="referencia">Referencia</label>
+        <input type="text" id="referencia">
+        <label for="Precio">Precio</label>
+        <input type="text" id="Precio">
+        <label for="foto">Suba una foto</label>
+
+        <input type="file" id="foto" name="foto">
+        <input type="submit" value="Enviar" class="btn-enviar">
+
+        <div class="pudrete">
+          <div class="image-preview" id="preview">
+            <img src="" alt="Image Preview" class="image-preview__image">
+            <span class="image-preview__default-text">Image preview</span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+
+por mantener: 
+la función para cargar la imagen está ok.
+mostrando una vista previa de la imagen cargada al usuario.
+
+el header de cada sección está ok, buen diseño.
+
+    • por implementar:
+Incluir el footer en todas las secciones del portal.
+Empezar a hacer las conexiones de las diferentes secciones del portal con la base de datos,
+para dar persistencia a los datos.
+
