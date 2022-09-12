@@ -68,7 +68,9 @@ nav a {
   font-size: 22px;
 }
 /* pagina de venta*/
-
+.formulario{
+  width: 80%;
+}
 .caja-formulario {
   position: relative;
   left: 10%;
