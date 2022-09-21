@@ -63,14 +63,13 @@ nav a {
   position: relative;
   width: 80%;
   left: 10%;
+  padding: 2%;
 }
 .contactenos li {
   font-size: 22px;
 }
 /* pagina de venta*/
-.formulario{
-  width: 80%;
-}
+
 .caja-formulario {
   position: relative;
   left: 10%;
@@ -151,7 +150,11 @@ input {
 .buscador{
   position: absolute;
   left: 100%;
-  top: -10%;
+  top: 40%;
+}
+.scroll{
+  overflow-y: auto;
+  max-height: 900px;
 }
 
 /* login */
