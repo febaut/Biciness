@@ -1,0 +1,42 @@
+{% load static %}
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href={% static 'reset.css' %}>
+  <link rel="stylesheet" href={% static 'style.css' %}>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <title>Biciness</title>
+</head>
+
+<body>
+    <header>
+        <div class="caja">
+          <p class="titulo">Biciness</p>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="venta.html">Venta</a></li>
+            <li><a href="compra.html">Compra</a></li>
+            <li><a href="registro.html">Sign Up</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </nav>
+    </header>
+    {%block content%}
+    {%endblock content%}
+  <footer>
+    <div class="contactenos">
+      <ul>
+        <li>Contactenos</li>
+        <li>Email</li>
+      </ul>
+    </div>
+  </footer>
+</body>
+<script src="{% static 'script.js' %}"></script> 
+</html>
