@@ -11,15 +11,16 @@
           <button class="buscar">Buscar</button>
           <input type="search" class="buscador" placeholder="Buscar">
         </div>
-       
+        
         <section style="background-color: #eee;">
           <div class="text-center container py-5 scroll">
             <div class="row">
-              <div class="col-lg-4 col-md-12 mb-4">
-                <div class="card">
+              {%for v in venta %}             
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">                  
                   <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
                     data-mdb-ripple-color="light">
-                    <img src="{% static 'bicicleta 1.webp'%}" alt="aca" class="w-100" />
+                    <img src="{{v.imagen.url}}" class="w-100" />
                     <a href="#!">
                       <div class="hover-overlay">
                         <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
@@ -28,168 +29,16 @@
                   </div>
                   <div class="card-body">
                     <a href="" class="text-reset">
-                      <h5 class="card-title mb-3">Product name</h5>
+                      <h5 class="card-title mb-3">{{v.marca_cicla}}</h5>
                     </a>
                     <a href="" class="text-reset">
-                      <p>Category</p>
+                      <p>{{v.ciudad}}</p>
                     </a>
-                    <h6 class="mb-3">$61.99</h6>
+                    <h6 class="mb-3">{{v.precio}}</h6>
                   </div>
                 </div>
               </div>
-  
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                  <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-                    data-mdb-ripple-color="light">
-                    <img src="{% static 'bicicleta 2.webp'%}" class="w-100" />
-                    <a href="#!">
-                      <div class="hover-overlay">
-                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="card-body">
-                    <a href="" class="text-reset">
-                      <h5 class="card-title mb-3">Product name</h5>
-                    </a>
-                    <a href="" class="text-reset">
-                      <p>Category</p>
-                    </a>
-                    <h6 class="mb-3">$61.99</h6>
-                  </div>
-                </div>
-              </div>
-  
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                  <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
-                    <img src="{% static 'bicicleta 3.webp'%}" class="w-100" />
-                    <a href="#!">
-                      <div class="hover-overlay">
-                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="card-body">
-                    <a href="" class="text-reset">
-                      <h5 class="card-title mb-3">Product name</h5>
-                    </a>
-                    <a href="" class="text-reset">
-                      <p>Category</p>
-                    </a>
-                    <h6 class="mb-3">
-                      $61.99
-                    </h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-  
-            <div class="row">
-              <div class="col-lg-4 col-md-12 mb-4">
-                <div class="card">
-                  <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
-                    <img src="{% static 'bicicleta 4.webp'%}" class="w-100" />
-                    <a href="#!">
-                      <div class="hover-overlay">
-                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="card-body">
-                    <a href="" class="text-reset">
-                      <h5 class="card-title mb-3">Product name</h5>
-                    </a>
-                    <a href="" class="text-reset">
-                      <p>Category</p>
-                    </a>
-                    <h6 class="mb-3">
-                      $61.99
-                    </h6>
-                  </div>
-                </div>
-              </div>
-  
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                  <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-                    data-mdb-ripple-color="light">
-                    <img src="{% static 'bicicleta 5.webp'%}"
-                      class="w-100" />
-                    <a href="#!">
-                      <div class="mask">
-                        <div class="d-flex justify-content-start align-items-end h-100"></div>
-                      </div>
-                      <div class="hover-overlay">
-                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="card-body">
-                    <a href="" class="text-reset">
-                      <h5 class="card-title mb-3">Product name</h5>
-                    </a>
-                    <a href="" class="text-reset">
-                      <p>Category</p>
-                    </a>
-                    <h6 class="mb-3">$61.99</h6>
-                  </div>
-                </div>
-              </div>
-  
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                  <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
-                    <img src="{% static 'bicicleta 6.webp'%}"
-                      class="w-100" />
-                    <a href="#!">
-  
-                      <div class="hover-overlay">
-                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="card-body">
-                    <a href="" class="text-reset">
-                      <h5 class="card-title mb-3">Product name</h5>
-                    </a>
-                    <a href="" class="text-reset">
-                      <p>Category</p>
-                    </a>
-                    <h6 class="mb-3">
-                      $61.99
-                    </h6>
-                  </div>
-                </div>
-              </div>
-  
-  
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                  <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
-                    <img src="{% static 'bicicleta 7.webp'%}"
-                      class="w-100" />
-                    <a href="#!">
-  
-                      <div class="hover-overlay">
-                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="card-body">
-                    <a href="" class="text-reset">
-                      <h5 class="card-title mb-3">Product name</h5>
-                    </a>
-                    <a href="" class="text-reset">
-                      <p>Category</p>
-                    </a>
-                    <h6 class="mb-3">
-                      $61.99
-                    </h6>
-                  </div>
-                </div>
-              </div>
+              {% endfor %}
             </div>
           </div>
         </section>
