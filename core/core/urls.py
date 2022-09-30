@@ -7,12 +7,12 @@ from django.urls.conf import include
 from .views import * 
 
 urlpatterns = [
+    path('', HomeView.as_view(), name="home"),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('Compra/', CompraView.as_view(),name="Compra"),
-    path('Venta/', include('Venta.urls', namespace="Venta")),
-
-    path('', HomeView.as_view(), name="home"),
+    path('Venta/', VentaView.as_view(),name="Venta"),
+    
 ]
 
 if settings.DEBUG:

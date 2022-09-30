@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<body>
+
+  <main>
+    <div class="caja-formulario">
+      <form class="formulario">
+        <label for="referencia">Referencia</label>
+        <input type="text" id="referencia">
+        <label for="Precio">Precio</label>
+        <input type="text" id="Precio">
+        <label for="foto">Suba una foto</label>
+
+        <input type="file" id="foto" name="foto">
+        <input type="submit" value="Enviar" class="btn-enviar">
+
+
+
+      </form>
+    </div>
+    <div class="imagen-caja">
+      <div class="image-preview" id="preview">
+        <img src="" alt="Image Preview" class="image-preview__image">
+        <span class="image-preview__default-text">Image preview</span>
+      </div>
+    </div>
+  </main>
+
+</body>
+
+{%endblock content%}
