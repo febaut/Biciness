@@ -5,13 +5,18 @@
 #   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
+from mailbox import NoSuchMailboxError
 from django.db import models
 import os
 from django.conf import settings
+from django.contrib.auth.models import AbstractUser
+
+
+User = settings.AUTH_USER_MODEL
 
 
 def core_biciness_path(instance, filename):
-    image_name = '{0}/{1}'.format(instance.marca_cicla, filename)
+    image_name = '{0}/{1}'.format(instance.nombre_vendedor, filename)
     fullpath = os.path.join(settings.MEDIA_ROOT, image_name)
 
     if os.path.exists(fullpath):
@@ -212,34 +217,48 @@ class SocialaccountSocialtoken(models.Model):
         unique_together = (('app', 'account'),)
 
 class Catalogo(models.Model):
-    id = models.IntegerField(db_column='ID', primary_key=True, blank=True, null=False)  # Field name made lowercase. This field type is a guess.
-    id_registro = models.ForeignKey('AuthUser', models.CASCADE, db_column='ID_REGISTRO', blank=True, null=True)  # Field name made lowercase.
-    monbre_producto = models.CharField(max_length = 25, db_column='MONBRE_PRODUCTO', blank=True, null=True)  # Field name made lowercase.
+    id_registro = models.ForeignKey('User', models.CASCADE, db_column='ID_REGISTRO', blank=True, null=True)  # Field name made lowercase.
+    nombre_producto = models.CharField(max_length = 25, db_column='NOMBRE_PRODUCTO', blank=False, null=False)  # Field name made lowercase.
     nombre_vendedor = models.CharField(max_length = 25, db_column='NOMBRE_VENDEDOR', blank=True, null=True)  # Field name made lowercase.
-    marca_clica = models.CharField(max_length = 25, db_column='MARCA_CLICA', blank=True, null=True)  # Field name made lowercase.
+    marca_cicla = models.CharField(max_length = 25, db_column='MARCA_CLICA', blank=True, null=True)  # Field name made lowercase.
     precio = models.FloatField(db_column='PRECIO', blank=True, null=False)  # Field name made lowercase. This field type is a guess.
     ciudad = models.CharField(max_length = 25, db_column='CIUDAD', blank=True, null=True)  # Field name made lowercase.
     contacto = models.IntegerField(db_column='CONTACTO', blank=True, null=True)  # Field name made lowercase.
+    imagen = models.ImageField(db_column='IMAGEN', blank=True, null=True, upload_to = core_biciness_path)  # Field name made lowercase.
+
+
+    def __str__(self):
+        return self.nombre_producto
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'CATALOGO'
+        ordering = ['id'] # Ascending by id
 
+    
 
 class Venta(models.Model):
-    id_referencia_venta = models.IntegerField(db_column='ID_REFERENCIA_VENTA', primary_key=True, blank=False, null=False)  # Field name made lowercase. This field type is a guess.
-    id_catalogo = models.ForeignKey(Catalogo, on_delete = models.CASCADE, db_column='ID_CATALOGO', blank=True, null=False)  # Field name made lowercase.
+    id_catalogo = models.ForeignKey(Catalogo, on_delete = models.CASCADE, db_column='ID_CATALOGO', blank=False, null=False)  # Field name made lowercase.
     ciudad = models.CharField(max_length = 25, db_column='CIUDAD', blank=True, null=True)  # Field name made lowercase.
     marca_cicla = models.CharField(max_length = 25, db_column='MARCA_CICLA', blank=True, null=True)  # Field name made lowercase.
     precio = models.FloatField(db_column='PRECIO', blank=True, null=True)  # Field name made lowercase. This field type is a guess.
     contacto = models.IntegerField(db_column='CONTACTO', blank=True, null=True)  # Field name made lowercase.
-    imagen = models.ImageField(db_column='IMAGEN', blank=True, null=True, upload_to = core_biciness_path)  # Field name made lowercase.
 
     def __str__(self):
-        return self.marca_cicla
+        return str(self.id)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'VENTA'
-        ordering = ['id_referencia_venta'] # Ascending by id
+        ordering = ['id'] # Ascending by id
 
+class User(AbstractUser):
+    customer_id = models.CharField(max_length=50)
+
+
+class UserVentas(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='Ventas_Hist')
+    ventas = models.ManyToManyField(Catalogo, blank = True)
+
+    def __str__(self):
+        return self.user.email

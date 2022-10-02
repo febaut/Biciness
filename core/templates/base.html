@@ -23,10 +23,12 @@
             <li><a href="{% url 'Venta'%}">Vende tu bici</a></li>
             <li><a href="{% url 'Compra'%}">Compra una bici</a></li>
             {% if user.is_authenticated %}
-            <li><a href="{% url 'account_logout'%}">Cerrar Sesion</a></li>
+            <li><a href="{% url 'Productos'%}">Mis productos</a></li>  
+            <li><a href="{% url 'account_logout'%}">Cerrar Sesión</a></li>
+                      
             {% else %}
-            <li><a href="{% url 'account_signup'%}">Registrate</a></li>
-            <li><a href="{% url 'account_login'%}">Inicia Sesion</a></li>
+            <li><a href="{% url 'account_signup'%}">Regístrate</a></li>
+            <li><a href="{% url 'account_login'%}">Inicia Sesión</a></li>
             {% endif %}
 
           </ul>
@@ -34,11 +36,12 @@
     </header>
     {%block content%}
     {%endblock content%}
+  
   <footer>
     <div class="contactenos">
       <ul>
-        <li>Contactenos</li>
-        <li>Email</li>
+        <li>Contáctenos</li>
+        <li>customerservice@biciness.com</li>
       </ul>
     </div>
   </footer>

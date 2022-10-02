@@ -5,19 +5,28 @@
 <body>
 
   <main>
-    <div class="caja-formulario">
-      <form class="formulario">
-        <label for="referencia">Referencia</label>
-        <input type="text" id="referencia">
-        <label for="Precio">Precio</label>
-        <input type="text" id="Precio">
-        <label for="foto">Suba una foto</label>
-
-        <input type="file" id="foto" name="foto">
+    {% if user.is_authenticated %}
+      <div class="caja-formulario">
+      <form method= "post" class="formulario" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.errors}}
+        <label for="referencia">Nombre del producto: </label>
+        {{form.nombre_producto}}
+        <label for="referencia">Nombre del vendedor: </label>
+        {{form.nombre_vendedor}}
+        <label for="referencia">Marca de la bicicleta: </label>
+        {{form.marca_cicla}}
+        <label for="Precio">Precio:</label>
+        {{form.precio}}
+        <label for="Precio">Ciudad:</label>
+        {{form.ciudad}}
+        <label for="Precio">Contacto:</label>
+        {{form.contacto}}
+        <label for="foto">Suba una foto:</label>
+        {{form.imagen}}
+       
         <input type="submit" value="Enviar" class="btn-enviar">
-
-
-
+       
       </form>
     </div>
     <div class="imagen-caja">
@@ -26,7 +35,12 @@
         <span class="image-preview__default-text">Image preview</span>
       </div>
     </div>
+    <p>{{v.nombre_vendedor}} - {{v.contacto}}</p>                    
+    {% else %}
+    <h3 class='contactenos'> Para publicar una venta debes iniciar sesión </h3>
+    {% endif %}
   </main>
+
 
 </body>
 

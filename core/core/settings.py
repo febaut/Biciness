@@ -38,16 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-
+    'core',
+    'Compra',
+    'Venta',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
 
+    
+    'accounts'
 
-    'core',
-    'Auth',
-    'Compra',
-    'Venta',
+
+    
 ]
 
 AUTHENTICATION_BACKENDS = [
@@ -60,6 +62,8 @@ SITE_ID = 1
 EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+AUTH_USER_MODEL="core.User"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
